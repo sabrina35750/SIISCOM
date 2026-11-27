@@ -12,4 +12,11 @@ class Movimento_estoque:
             f'Data: {self.data}\n'
             f'Produto: {self.produto.nome}\n'
         )
+    def executar(self):
+        if self.tipo == "entrada":
+            self.produto.adicionar_estoque(self.quantidade)
+        elif self.tipo == "saida":
+            self.produto.remover_estoque(self.quantidade)
+        else:
+            raise ValueError("Tipo inválido. Use 'entrada' ou 'saida'.")
 
